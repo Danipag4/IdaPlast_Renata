@@ -44,7 +44,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-df = pd.read_csv("IdaPlastEqrenata.csv", sep=",")
+df = pd.read_csv("IdaPlastEqRenata.csv", sep=",")
 
 df=df.sort_values("Nome")
 

@@ -6,7 +6,7 @@ except ImportError:
     import plotly_express as px
 import streamlit.components.v1 as components
 
-st.set_page_config(layout="wide", page_title="Ida Plast - Análise de Competências")
+st.set_page_config(layout="wide", page_title="Idaplast - Análise de Competências")
 
 # 1. CSS Global de Impressão (aplicado apenas ao imprimir)
 st.markdown("""
@@ -83,7 +83,7 @@ if st.session_state.printing:
         st.rerun()
             
     # Título do Relatório com Nome do Avaliado
-    st.write(f"# Relatório de Avaliação - Ida Plast")
+    st.write(f"# Relatório de Avaliação - Idaplast")
     st.write(f"### Colaborador Avaliado: **{Nome}**")
     st.markdown("---")
     
@@ -166,6 +166,20 @@ if st.session_state.printing:
     for i in range(6):
         st.markdown('<div style="border-bottom: 1px dotted #888; height: 32px; margin-bottom: 2px; width: 100%;"></div>', unsafe_allow_html=True)
         
+    # Linha para data e assinatura de ciente
+    st.markdown("""
+    <div style="margin-top: 60px; display: flex; justify-content: space-between; font-family: sans-serif; font-size: 14px; page-break-inside: avoid; break-inside: avoid;">
+        <div style="width: 45%; text-align: center;">
+            <div style="border-bottom: 1px solid #444; margin-bottom: 8px; height: 30px;"></div>
+            <span style="color: #333; font-weight: 500;">Assinatura do Colaborador (Ciente)</span>
+        </div>
+        <div style="width: 45%; text-align: center;">
+            <div style="border-bottom: 1px solid #444; margin-bottom: 8px; height: 30px;"></div>
+            <span style="color: #333; font-weight: 500;">Data: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
     # Acionar diálogo de impressão após 1 segundo (tempo dos gráficos renderizarem)
     components.html(
         """
@@ -183,7 +197,7 @@ if st.session_state.printing:
 # -------------------------------------------------------------
 else:
     st.write("""
-    # Ida Plast - Análise de Competências (Liderança)
+    # Idaplast - Análise de Competências (Liderança)
     """ )
     
     if st.button("🖨️ IMPRIMIR", key="btn_imprimir_top", type="primary"):
